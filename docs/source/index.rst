@@ -1,4 +1,4 @@
-Cryptnox Basic Wallet Card — API Reference
+Cryptnox Hardware Wallet — API Reference
 ============================================
 
 **Doc revision 1.0** — for Cryptnox Wallet v1.6.1
