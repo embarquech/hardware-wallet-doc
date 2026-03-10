@@ -405,7 +405,7 @@ or contacted interface) the realization of such an attack at this point is unrea
 
 The payload is the concatenation of the User data, PIN, PUK and the Secure Channel first
 pairing secret. The User data consists of the User Name and the User Email, each prepended
-with a byte indicating their length. For example: ``0x07 | 'Antonio' | 0x14 | 'antonio@bigcorpo.com'``.
+with a byte indicating their length. For example: ``0x07 | 'Cryptnox' | 0x14 | 'contact@cryptnox.com'``.
 
 These user fields can carry whatever information the user wants to input in the card: their
 name, an ID number, a key identifier, etc.
