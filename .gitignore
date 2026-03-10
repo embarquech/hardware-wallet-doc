@@ -1,0 +1,4 @@
+docs/build/
+*.swp
+__pycache__/
+*.pyc
