@@ -1,7 +1,7 @@
 Cryptnox Hardware Wallet — API Reference
 ============================================
 
-**Doc revision 1.0** — for Cryptnox Wallet v1.6.1
+**Doc revision 1.0** — for Cryptnox Hardware Wallet v1.6.1
 
 Basic version with user auth by ECDSA 256r1, RSA2048 and FIDO auth.
 
