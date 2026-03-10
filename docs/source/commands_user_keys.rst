@@ -303,6 +303,17 @@ to request an assertion from the external FIDO authenticator.
      - var
      - FIDO credential identifier
 
+**FIDO Registration and Authentication Flow**
+
+The following diagram illustrates the complete FIDO2 user registration and authentication flow
+between the external FIDO authenticator, the host PC, and the wallet card:
+
+.. figure:: _static/diagFIDOauth.png
+   :alt: FIDO2 authentication sequence diagram
+   :align: center
+
+   FIDO2 user registration (ADD USER KEY) and authentication (CHECK USER KEY) sequence.
+
 **FIDO Signature Format (Slot 3)**
 
 When slot 3 is used for auth-for-sign or challenge-response, the data format differs from

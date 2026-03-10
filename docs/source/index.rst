@@ -1,7 +1,7 @@
 Cryptnox Basic Wallet Card — API Reference
 ============================================
 
-**Doc revision N** — for Cryptnox Wallet Basic v1.6.0
+**Doc revision 1.0** — for Cryptnox Wallet Basic v1.6.1
 
 Basic version with user auth by ECDSA 256r1, RSA2048 and FIDO auth.
 

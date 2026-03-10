@@ -2,10 +2,10 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Cryptnox Basic Wallet Card'
+project = 'Cryptnox Hardware Wallet'
 copyright = '2026, Cryptnox'
 author = 'Cryptnox'
-release = '1.6.0'
+release = '1.6.1'
 
 # -- General configuration ---------------------------------------------------
 
