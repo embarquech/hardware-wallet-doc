@@ -1,7 +1,7 @@
-Lifecycle Management
+Lifecycle management
 ====================
 
-Card Startup
+Card startup
 ------------
 
 After receiving the ATR from the card, one must select the applet to use it. The applet AID is

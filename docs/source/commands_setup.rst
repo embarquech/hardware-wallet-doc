@@ -1,4 +1,4 @@
-Setup & Channel Commands
+Setup & channel commands
 ========================
 
 .. _cmd-select:

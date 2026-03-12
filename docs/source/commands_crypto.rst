@@ -1,4 +1,4 @@
-Cryptographic Commands
+Cryptographic commands
 ======================
 
 .. _cmd-verify-pin:

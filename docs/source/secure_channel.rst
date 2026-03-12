@@ -1,7 +1,7 @@
-Secure Channel
+Secure channel
 ==============
 
-Opening a Secure Channel
+Opening a secure channel
 -------------------------
 
 In a standard use of the applet, just after selecting the applet, the client opens a secure
@@ -32,7 +32,7 @@ as a pairing key, and a user losing their pairing key can still use the PUK to a
 See the :ref:`cmd-get-card-cert`, :ref:`cmd-open-sc`, and :ref:`cmd-mutually-auth` commands for
 all details.
 
-Mutual Authentication
+Mutual authentication
 ---------------------
 
 Right after the secure channel is opened, the user shall test it using the ``MUTUALLY AUTHENTICATE``
@@ -63,7 +63,7 @@ response as the SW.
 An exception to this is SW ``0x6982``, which indicates that the SecureChannel has been
 aborted and as such is returned without any MAC.
 
-Encryption Process
+Encryption process
 ^^^^^^^^^^^^^^^^^^
 
 To encrypt the data both the card and the client do the following:
@@ -73,7 +73,7 @@ To encrypt the data both the card and the client do the following:
 3. An AES CBC-MAC is calculated over the entire APDU data.
 4. The data field of the APDU is set to the MAC followed by the encrypted data.
 
-Decryption Process
+Decryption process
 ^^^^^^^^^^^^^^^^^^
 
 To decrypt the data both the card and the client do the following:
@@ -86,7 +86,7 @@ The IV used for the encryption is the last seen MAC from the counterpart. This o
 number of transmitted bytes and guarantees protection from replay attacks. For the MAC
 generation, a zero IV is always used.
 
-MAC Generation for C-APDUs
+MAC generation for C-APDUs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Calculated on the concatenation of:
@@ -100,7 +100,7 @@ The 9-byte long padding does not become part of the data field and does not affe
 - LCx = ``(Len 00 00)`` if len < 256 bytes
 - LCx = ``(00 LenMSB LenLSB)`` if len >= 256 bytes (big endian short)
 
-MAC Generation for R-APDUs
+MAC generation for R-APDUs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Calculated on the concatenation of:
@@ -115,7 +115,7 @@ encrypted response data field and is not transmitted.
 - LRx = ``(Len 00 00)`` if len < 256 bytes
 - LRx = ``(00 LenMSB LenLSB)`` if len >= 256 bytes (big endian short)
 
-Error Conditions
+Error conditions
 ^^^^^^^^^^^^^^^^
 
 1. If a sensitive command is received without an active Secure Channel, the card shall respond

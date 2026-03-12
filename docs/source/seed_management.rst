@@ -1,4 +1,4 @@
-Seed Management
+Seed management
 ===============
 
 Overview
@@ -20,7 +20,7 @@ system (AIS 20 class DRG.3). With the use of the ``GENERATE KEY`` command, the s
 never escapes the card protection. If performed the simple way, there's no way to get a backup
 of this seed.
 
-Dual Generation Mode
+Dual generation mode
 ^^^^^^^^^^^^^^^^^^^^
 
 The Dual Generation mode allows a cross generation between 2 cards which then share a common
@@ -48,7 +48,7 @@ After this, the 2 cards have a common seed. One card is a backup of the other.
 
 See the :ref:`cmd-load-key` command for more details.
 
-External Random Entropy
+External random entropy
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 The card can output random data. The query answer is only output data and is not used internally
@@ -67,7 +67,7 @@ key pairs.
 
 See the :ref:`cmd-load-key` command for more details about the recovery command.
 
-Key Source Types
+Key source types
 ----------------
 
 After loading or generating, the key source info byte indicates the origin:

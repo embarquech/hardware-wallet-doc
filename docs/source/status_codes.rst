@@ -1,7 +1,7 @@
-Status Codes Reference
+Status codes reference
 ======================
 
-Standard Status Words
+Standard status words
 ---------------------
 
 .. list-table::
@@ -43,7 +43,7 @@ Standard Status Words
    * - ``0x9840``
      - PUK verification not successful (used in CHANGE PIN with P1=PUK).
 
-Secure Channel Status Words
+Secure channel status words
 ----------------------------
 
 When the secure channel is open, all response status words are ``0x9000`` in the outer
@@ -52,7 +52,7 @@ When the secure channel is open, all response status words are ``0x9000`` in the
 The only exception is ``0x6982``, which indicates the secure channel has been aborted and is
 returned in plaintext (without MAC).
 
-PIN Retry Behavior
+PIN retry behavior
 ------------------
 
 .. list-table::
@@ -66,7 +66,7 @@ PIN Retry Behavior
    * - Persistent (OwnerPIN)
      - 6 total tries across sessions. Depleted = PIN blocked, requires PUK to unblock.
 
-PUK Retry Behavior
+PUK retry behavior
 ------------------
 
 .. list-table::

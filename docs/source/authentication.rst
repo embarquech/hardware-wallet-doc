@@ -1,7 +1,7 @@
 Authentication
 ==============
 
-PIN Authentication
+PIN authentication
 ------------------
 
 The PIN chosen during the initialization needs to be provided after each EC signature, because
@@ -10,7 +10,7 @@ a signature resets the PIN validity.
 The PIN verification is done in a standard way through the secure channel. The PIN must be
 between 4 and 9 figures long.
 
-Retry Behavior
+Retry behavior
 ^^^^^^^^^^^^^^
 
 - The PIN can be tested **3 times** before a disconnection of the card is required.
@@ -26,7 +26,7 @@ until the card powers off or a signature is performed.
 
 See the :ref:`cmd-verify-pin` command for more details.
 
-User Key Authentication
+User key authentication
 -----------------------
 
 Another way to authenticate the user is with an EC256r1 or RSA key pair. There's a random
@@ -45,14 +45,14 @@ This user auth by ECDSA can also be performed by an external FIDO authenticator.
 A user key can be uploaded in a slot only once, and requires a delete user key command if
 there's already a key in the slot.
 
-Key Slots
+Key slots
 ^^^^^^^^^
 
 - **Slot 1**: EC 256r1 public key (X9.62 uncompressed format, 65 bytes: ``04|X|Y``)
 - **Slot 2**: RSA 2048 public key (256 bytes modulus, exponent must be 65537)
 - **Slot 3**: FIDO key (``CredIDLength(1B) | CredID(up to 64B) | ECpubkey(65B)``)
 
-Authentication Modes
+Authentication modes
 ^^^^^^^^^^^^^^^^^^^^
 
 There are 2 kinds of user auth:
@@ -64,7 +64,7 @@ There are 2 kinds of user auth:
   Auth the transaction hash. The challenge is one or a set of hashes to be "blockchain" signed.
   When ``P1`` is OR'd with ``0x10``, the data message is a hash list (1 to 4 hashes).
 
-FIDO Authentication
+FIDO authentication
 ^^^^^^^^^^^^^^^^^^^
 
 When the slot index is 3, this is a special case for a FIDO signature. The data must include
@@ -88,7 +88,7 @@ Where:
 The restriction for FIDO2 user-auth-for-sign is a maximum of 3 hashes can be authorized at once
 (instead of 4).
 
-Disabling PIN Auth
+Disabling PIN auth
 ------------------
 
 With the ``SET PIN AUTH`` command, one can disable the PIN auth and only let the auth performed

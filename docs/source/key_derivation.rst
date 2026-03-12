@@ -1,4 +1,4 @@
-Key Derivation
+Key derivation
 ==============
 
 Overview
@@ -11,7 +11,7 @@ The card stores the present key pair (and its parent), used for signature. This 
 using the ``DERIVE`` command, giving a relative path (from the present or parent key pair), or
 an absolute path (from the master key pair).
 
-Dual Curve Support
+Dual curve support
 ------------------
 
 The card can derive with:
@@ -23,7 +23,7 @@ A flag in ``DERIVE``, ``EXPORT`` or ``SIGN`` is used to select one or the other 
 2 separate key trees in the card, one for r1 and one for k1. They are separated, only linked
 from the same seed.
 
-Derivation Sources
+Derivation sources
 ------------------
 
 .. list-table::
@@ -41,7 +41,7 @@ Derivation Sources
    * - ``11``
      - Reserved
 
-Parent Key Caching
+Parent key caching
 ------------------
 
 The ability to start derivation from the parent keys allows to more efficiently switch between
@@ -51,7 +51,7 @@ cached so one cannot use this to go back in the keys hierarchy.
 If no valid parent key is available (e.g., when the current key pair is the master root), the
 status code ``0x6B00`` is returned.
 
-Performance Considerations
+Performance considerations
 --------------------------
 
 For ease of use, the user can derive from the root master node key pair (absolute path) at each

@@ -1,4 +1,4 @@
-User Key & Configuration Commands
+User key & configuration commands
 =================================
 
 .. _cmd-add-user-key:

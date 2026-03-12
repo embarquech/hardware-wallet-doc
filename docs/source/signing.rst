@@ -1,4 +1,4 @@
-EC Signature
+EC signature
 ============
 
 Overview
@@ -12,7 +12,7 @@ The derivation of the key pair node can also be done using the signature command
 absolute). The card derives just before signing; this can't be used to sign with a different key,
 and this cannot change the current stored key.
 
-Signature Types
+Signature types
 ---------------
 
 .. list-table::
@@ -28,7 +28,7 @@ Signature Types
    * - ``0x02``
      - Bitcoin Schnorr BIP340 signature (k1 only)
 
-Ephemeral Nonce
+Ephemeral nonce
 ---------------
 
 The ephemeral ``k`` used in the ECDSA and Schnorr is random and different for each signature.
@@ -37,7 +37,7 @@ platform, which internally provides a source of high-quality randomness during t
 
 This applet does **not** use RFC6979 deterministic digital signature generation.
 
-ECDSA Output Format
+ECDSA output format
 --------------------
 
 The signature is encoded as an X9.62 ASN1 DER sequence of two INTEGER values, ``r`` and ``s``,
@@ -50,7 +50,7 @@ in that order:
 Additionally, to be compatible with blockchain specific signatures, the S part of the signature
 is always output as "canonical", changed for S to be on the "lower" side (S lower than n/2).
 
-BIP340 Schnorr Output Format
+BIP340 Schnorr output format
 -----------------------------
 
 Returns 64 bytes ``R|S`` = 2x256 bits MSB first, as per BIP340 standard.
@@ -58,7 +58,7 @@ Returns 64 bytes ``R|S`` = 2x256 bits MSB first, as per BIP340 standard.
 The 32-byte nonce rand value is directly provided by a random source in the JCOP4 platform.
 Works only with k1 keys (current, derive or pinless).
 
-Pinless Signing
+Pinless signing
 ---------------
 
 ``P1 = 0x03`` is specifically designed for payment transactions. It can be executed without
@@ -69,7 +69,7 @@ using the PIN-less derivation path previously defined using the ``SET PINLESS PA
 
 The pinless path is restricted to the EIP-1581 prefix (``m/43'/60'/1581'/...``).
 
-PIN and Auth Reset After Signing
+PIN and auth reset after signing
 ---------------------------------
 
 An EC signature resets the PIN or user key auth. A PIN verification (or user sign auth) must be

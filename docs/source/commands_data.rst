@@ -1,4 +1,4 @@
-Data Commands
+Data commands
 =============
 
 .. _cmd-read-data:
