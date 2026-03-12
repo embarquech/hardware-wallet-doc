@@ -3,7 +3,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Cryptnox Hardware Wallet'
-copyright = '2026, Cryptnox'
+copyright = '2026, Cryptnox SA'
 author = 'Cryptnox'
 release = '1.6.1'
 
