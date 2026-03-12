@@ -77,12 +77,14 @@ th {
     background: #fcb770 !important;
 }
 
-.wy-menu-vertical li.current a:hover {
+/* Active/current page in nav */
+.wy-menu-vertical li.current > a {
     color: #ffffff !important;
     background: #fcb770 !important;
+    border-bottom: none;
 }
 
-.wy-menu-vertical li.current > a:hover {
+.wy-menu-vertical li.current a:hover {
     color: #ffffff !important;
-    background: #fcb770 !important;
+    background: #e5a560 !important;
 }
