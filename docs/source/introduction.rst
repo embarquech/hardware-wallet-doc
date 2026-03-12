@@ -1,9 +1,6 @@
 Introduction
 ============
 
-Overview
---------
-
 The Cryptnox Basic Wallet Card is a JavaCard-based secure hardware wallet that provides hardware
 security module (HSM)-grade protection for blockchain operations. It is engineered to manage
 cryptographic keys, perform key derivation, and sign transactions directly within the card's
