@@ -1,7 +1,7 @@
 Introduction
 ============
 
-The Cryptnox Basic Wallet Card is a JavaCard-based secure hardware wallet that provides hardware
+The Cryptnox Hardware Wallet card is a JavaCard-based secure hardware wallet that provides hardware
 security module (HSM)-grade protection for blockchain operations. It is engineered to manage
 cryptographic keys, perform key derivation, and sign transactions directly within the card's
 secure environment, ensuring that private keys never leave the Secure Element.
@@ -16,7 +16,7 @@ robust security.
 Security model
 --------------
 
-The Cryptnox Basic Wallet Card is built on a Common Criteria EAL6+ certified Secure Element,
+The Cryptnox Hardware Wallet card is built on a Common Criteria EAL6+ certified Secure Element,
 providing resistance to both physical and logical attacks. All sensitive data exchanges are
 protected by a Secure Channel protocol, based on principles similar to GlobalPlatform SCP03,
 which ensures mutual authentication, confidentiality, and integrity through ``AES-256``
@@ -45,7 +45,7 @@ revealing the private seed material outside the Secure Element.
 Supported algorithms and curves
 --------------------------------
 
-The Cryptnox Basic Wallet Card supports a comprehensive suite of asymmetric, symmetric, and
+The Cryptnox Hardware Wallet card supports a comprehensive suite of asymmetric, symmetric, and
 hashing algorithms that align with current blockchain and authentication standards.
 
 Elliptic curves

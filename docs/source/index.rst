@@ -20,7 +20,7 @@ The secure channel is quite similar to GP SCP03. The applet uses Extended APDU t
 single query, single answer.
 
 The applet hosts a "Dual Basic Group Secret" EC secret key, which is a secret designed to be
-shared within a pair of Basic wallet cards. This is loaded at factory with a one-shot encryption.
+shared within a pair of Cryptnox Hardware Wallet cards. This is loaded at factory with a one-shot encryption.
 This secures the dual generation process.
 
 .. toctree::

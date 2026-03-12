@@ -46,7 +46,7 @@ random challenge to be signed for PIN-like behavior. The public key is registere
 and the "blockchain" EC signature can be allowed with a signature from this user key: hash to be
 signed with the card must be signed with the user key.
 
-The goal of this function is to use the Basic wallet card (to make transactions) in conjunction
+The goal of this function is to use the Cryptnox Hardware Wallet card (to make transactions) in conjunction
 with a key storage such as iOS Secure Enclave Touch ID or a PC TPM, instead of using the PIN.
 
 The PIN check and user authentication is reset after any EC signature (of all the authorized

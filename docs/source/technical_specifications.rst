@@ -1,7 +1,7 @@
 Technical specifications
 ========================
 
-The Cryptnox Basic Wallet Card integrates advanced hardware and cryptographic capabilities to
+The Cryptnox Hardware Wallet card integrates advanced hardware and cryptographic capabilities to
 deliver a secure, high-performance environment for blockchain operations and key management. It
 is implemented on a certified Secure Element platform and adheres to international smartcard and
 cryptographic standards.
@@ -9,7 +9,7 @@ cryptographic standards.
 Cryptographic capabilities
 --------------------------
 
-The Cryptnox Basic Wallet Card supports a broad range of cryptographic functions for blockchain
+The Cryptnox Hardware Wallet card supports a broad range of cryptographic functions for blockchain
 signing, enterprise authentication, and key derivation.
 
 It operates on both ``secp256k1`` and ``secp256r1`` elliptic curves, maintaining independent key
@@ -59,7 +59,7 @@ CMAC`` for message integrity. Key derivation follows the ``HMAC-SHA512`` standar
 Communication protocols
 -----------------------
 
-The Cryptnox Basic Wallet Card communicates using ISO 7816 APDUs over the ``T=1`` protocol, with
+The Cryptnox Hardware Wallet card communicates using ISO 7816 APDUs over the ``T=1`` protocol, with
 full support for extended APDUs to handle larger payloads. All sensitive operations are performed
 through an authenticated Secure Channel, established via ECDH and protected by ``AES-256``
 encryption.
@@ -216,7 +216,7 @@ unpredictability.
 Hardware and JavaCard platform
 ------------------------------
 
-The Cryptnox Basic Wallet Card is built on the ``NXP JCOP 4.x`` Secure Element platform, a
+The Cryptnox Hardware Wallet card is built on the ``NXP JCOP 4.x`` Secure Element platform, a
 JavaCard-based architecture recognized for its robust security and versatility.
 
 It provides dedicated memory partitions for cryptographic key storage and hierarchical key
