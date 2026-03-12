@@ -1,13 +1,13 @@
 /* Custom styling for the documentation */
 
 body, html {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Noto Sans', 'Helvetica Neue', 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
 /* Custom header styling */
 h1, h2, h3, h4, h5, h6 {
     color: #2c3e50;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Noto Sans', 'Helvetica Neue', 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
 /* Style for code blocks */
