@@ -1,9 +1,6 @@
 Key derivation
 ==============
 
-Overview
---------
-
 The card applet is fully compliant with ``BIP32`` (``secp256k1`` curve) and ``SLIP10``
 (``secp256r1`` curve), except the maximum depth of derivation from the master key is
 **8 levels**.

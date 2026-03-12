@@ -1,9 +1,6 @@
 EC signature
 ============
 
-Overview
---------
-
 The card applet can sign any 256-bit hash provided, using ECDSA with ``secp256k1`` or
 ``secp256r1`` EC parameters. Most blockchain systems use ``SHA2-256`` to hash the message, but
 this card applet is agnostic: the signature is performed on a hash provided by the user.

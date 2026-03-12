@@ -1,9 +1,6 @@
 Seed management
 ===============
 
-Overview
---------
-
 The applet manages a 256-bit master secret called the "seed". This is the ``BIP32`` master seed,
 and can be externally computed from a mnemonic to a binary seed using ``BIP39``. The key pairs
 used for ECDSA are then computationally derived from this seed using ``SLIP10``/``BIP32``
