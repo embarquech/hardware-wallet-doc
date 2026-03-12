@@ -27,6 +27,8 @@ This secures the dual generation process.
    :maxdepth: 2
    :caption: Contents
 
+   introduction
+   technical_specifications
    lifecycle
    secure_channel
    authentication
