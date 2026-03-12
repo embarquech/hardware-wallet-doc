@@ -1,35 +1,28 @@
-{% extends "!layout.html" %}
+{%- extends "!layout.html" -%}
 
-{% block extrahead %}
-{# Canonical URL #}
-{% if pageurl %}
+{%- block extrahead -%}
+{%- if pageurl %}
 <link rel="canonical" href="{{ pageurl }}" />
-{% elif meta and meta.canonical %}
+{%- elif meta and meta.canonical %}
 <link rel="canonical" href="{{ meta.canonical }}" />
-{% endif %}
-
-{# Open Graph #}
+{%- endif %}
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="{{ title|striptags }} | Cryptnox Docs" />
 <meta property="og:description" content="Cryptnox Hardware Wallet v1.6.1 — APDU command reference, secure channel protocol, key derivation, signing, and authentication for JavaCard-based crypto wallet cards." />
-{% if pageurl %}
+{%- if pageurl %}
 <meta property="og:url" content="{{ pageurl }}" />
-{% endif %}
+{%- endif %}
 <meta property="og:site_name" content="Cryptnox Docs" />
 <meta property="og:image" content="https://docs.cryptnox.com/wp-content/uploads/2025/08/Technical-Documentation-1024x538.png" />
 <meta property="og:image:width" content="800" />
 <meta property="og:image:height" content="420" />
 <meta property="og:image:alt" content="Cryptnox Hardware Wallet Technical Documentation" />
 <meta property="og:image:type" content="image/png" />
-
-{# Twitter Card #}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{ title|striptags }} | Cryptnox Docs" />
 <meta name="twitter:description" content="Cryptnox Hardware Wallet v1.6.1 — APDU command reference, secure channel protocol, key derivation, signing, and authentication for JavaCard-based crypto wallet cards." />
 <meta name="twitter:image" content="https://docs.cryptnox.com/wp-content/uploads/2025/08/Technical-Documentation-1024x538.png" />
-
-{# JSON-LD Structured Data #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -81,8 +74,6 @@
   ]
 }
 </script>
-
-{# Google Analytics (gtag.js) #}
 <script async src="https://www.googletagmanager.com/gtag/js?id=GT-PJ7HDFB"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -90,4 +81,4 @@
   gtag('js', new Date());
   gtag('config', 'GT-PJ7HDFB');
 </script>
-{% endblock %}
+{%- endblock -%}
