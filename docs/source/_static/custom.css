@@ -1,4 +1,5 @@
 /* Custom styling for the documentation */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
 
 body, html {
     font-family: 'Noto Sans', 'Helvetica Neue', 'Open Sans', Helvetica, Arial, sans-serif;
