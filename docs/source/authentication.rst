@@ -13,56 +13,91 @@ between 4 and 9 figures long.
 Retry behavior
 ^^^^^^^^^^^^^^
 
-- The PIN can be tested **3 times** before a disconnection of the card is required.
-- After a power cycle, it can be tested **3 more times** before the PIN state is locked.
-- When locked, the PIN requires unlocking with the PUK.
-- When PIN tries need a power cycle, the command always returns ``0x63C0``, even if the PIN
-  is inserted correctly.
-- After a power cycle, if the card still throws ``0x63C0``, the PIN is blocked and the
-  ``UNBLOCK PIN`` command must be used.
+.. list-table::
+   :header-rows: 1
+   :widths: 25 75
+
+   * - Event
+     - Behavior
+   * - Per-session tries
+     - The PIN can be tested **3 times** before a disconnection of the card is required.
+   * - After power cycle
+     - 3 more tries are available before the PIN state is locked.
+   * - PIN locked
+     - Requires unlocking with the PUK via the ``UNBLOCK PIN`` command.
+   * - ``0x63C0`` response
+     - Returned when tries need a power cycle, even if the PIN is correct.
+   * - Persistent ``0x63C0``
+     - After power cycle, if the card still throws ``0x63C0``, the PIN is blocked.
 
 After a successful signature command, the PIN verification is reset. A PIN verification is valid
 until the card powers off or a signature is performed.
 
-See the :ref:`cmd-verify-pin` command for more details.
+.. seealso::
+
+   - :ref:`cmd-verify-pin` command for the full APDU specification
+   - :doc:`status_codes` for PIN and PUK retry counter details
 
 User key authentication
 -----------------------
 
-Another way to authenticate the user is with an EC256r1 or RSA key pair. There's a random
-challenge to be signed for PIN-like behavior. The public key is registered in the card, and
-the "blockchain" EC signature can be allowed with a signature from this user key: hash to be
+Another way to authenticate the user is with an ``EC256r1`` or ``RSA`` key pair. There is a
+random challenge to be signed for PIN-like behavior. The public key is registered in the card,
+and the "blockchain" EC signature can be allowed with a signature from this user key: hash to be
 signed with the card must be signed with the user key.
 
 The goal of this function is to use the Basic wallet card (to make transactions) in conjunction
-with a key storage such as iOS secure enclave Touch ID or a PC TPM, instead of using the PIN.
+with a key storage such as iOS Secure Enclave Touch ID or a PC TPM, instead of using the PIN.
 
 The PIN check and user authentication is reset after any EC signature (of all the authorized
 hashes).
 
 This user auth by ECDSA can also be performed by an external FIDO authenticator.
 
-A user key can be uploaded in a slot only once, and requires a delete user key command if
-there's already a key in the slot.
+A user key can be uploaded in a slot only once, and requires the ``DELETE USER KEY`` command if
+there is already a key in the slot.
 
 Key slots
 ^^^^^^^^^
 
-- **Slot 1**: EC 256r1 public key (X9.62 uncompressed format, 65 bytes: ``04|X|Y``)
-- **Slot 2**: RSA 2048 public key (256 bytes modulus, exponent must be 65537)
-- **Slot 3**: FIDO key (``CredIDLength(1B) | CredID(up to 64B) | ECpubkey(65B)``)
+.. list-table::
+   :header-rows: 1
+   :widths: 10 25 65
+
+   * - Slot
+     - Key type
+     - Format
+   * - 1
+     - ``EC 256r1``
+     - X9.62 uncompressed (65 bytes: ``04 | X | Y``)
+   * - 2
+     - ``RSA 2048``
+     - 256 bytes modulus, exponent must be ``65537``
+   * - 3
+     - FIDO
+     - ``CredIDLength(1B) | CredID(up to 64B) | ECpubkey(65B)``
 
 Authentication modes
 ^^^^^^^^^^^^^^^^^^^^
 
 There are 2 kinds of user auth:
 
-**Challenge-Response** (``P1=1`` and ``P1=2``):
-  Auth for all commands except SIGN. The card provides a random challenge, the user signs it.
+.. list-table::
+   :header-rows: 1
+   :widths: 25 20 55
 
-**Auth for Sign** (``P1=0`` or ``P1=0x10``):
-  Auth the transaction hash. The challenge is one or a set of hashes to be "blockchain" signed.
-  When ``P1`` is OR'd with ``0x10``, the data message is a hash list (1 to 4 hashes).
+   * - Mode
+     - P1
+     - Description
+   * - Challenge-response
+     - ``0x01`` / ``0x02``
+     - Auth for all commands except ``SIGN``. The card provides a random challenge,
+       the user signs it.
+   * - Auth for sign
+     - ``0x00`` / ``0x10``
+     - Auth the transaction hash. The challenge is one or a set of hashes to be
+       "blockchain" signed. When ``P1`` is OR'd with ``0x10``, the data message is a
+       hash list (1 to 4 hashes).
 
 FIDO authentication
 ^^^^^^^^^^^^^^^^^^^
@@ -74,7 +109,7 @@ the counter, making the data input:
 
    hash(33-97B) | counter(4B) | ECsignature(EC256r1 ASN1)
 
-The card checks the signature as a webauthn "user verified" message:
+The card checks the signature as a WebAuthn "user verified" message:
 
 .. code-block:: none
 
@@ -82,11 +117,13 @@ The card checks the signature as a webauthn "user verified" message:
 
 Where:
 
-- ``rp_id = "cryptnox.ch"``
-- ``clientData = '{"type": "webauthn.get", "origin": "https://cryptnox.ch", "challenge": "", "clientExtensions": {}}'``
+- ``rp_id`` = ``"cryptnox.ch"``
+- ``clientData`` = ``'{"type": "webauthn.get", "origin": "https://cryptnox.ch", "challenge": "", "clientExtensions": {}}'``
 
-The restriction for FIDO2 user-auth-for-sign is a maximum of 3 hashes can be authorized at once
-(instead of 4).
+.. note::
+
+   The restriction for FIDO2 user-auth-for-sign is a maximum of 3 hashes can be authorized at
+   once (instead of 4).
 
 Disabling PIN auth
 ------------------
@@ -94,5 +131,13 @@ Disabling PIN auth
 With the ``SET PIN AUTH`` command, one can disable the PIN auth and only let the auth performed
 by user authentication (public keys registered).
 
-See the :ref:`cmd-add-user-key`, :ref:`cmd-check-user-key`, and :ref:`cmd-set-pin-auth` commands
-for all details.
+.. important::
+
+   When PIN auth is disabled, only user key authentication (slots 1--3) can authorize operations.
+   Make sure at least one user key is registered before disabling PIN auth.
+
+.. seealso::
+
+   - :ref:`cmd-add-user-key`, :ref:`cmd-check-user-key`, and :ref:`cmd-set-pin-auth` commands
+     for full APDU specifications
+   - :doc:`signing` for details on how signing resets authentication state
