@@ -1,5 +1,15 @@
 /* Custom styling for the documentation */
 
+body, html {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Custom header styling */
+h1, h2, h3, h4, h5, h6 {
+    color: #2c3e50;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 /* Style for code blocks */
 .highlight {
     background-color: #f8f9fa;
@@ -8,10 +18,6 @@
     margin: 1rem 0;
 }
 
-/* Custom header styling */
-h1, h2, h3, h4, h5, h6 {
-    color: #2c3e50;
-}
 
 /* Custom link styling */
 a {
